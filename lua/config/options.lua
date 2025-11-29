@@ -49,3 +49,7 @@ vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default regis
 
 -- turn off swapfile
 vim.opt.swapfile = false
+
+-- Copilot chat highlight groups
+vim.api.nvim_set_hl(0, 'CopilotChatHeader', { fg = '#7C3AED', bold = true })
+vim.api.nvim_set_hl(0, 'CopilotChatSeparator', { fg = '#374151' })

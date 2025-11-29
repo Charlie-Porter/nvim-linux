@@ -63,15 +63,19 @@ keymap.set("n", "<Leader>gc", builtin.git_commits, { desc = "Telescope Git Commi
 keymap.set("n", "<Leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
 keymap.set("n", "<Leader>gsh", builtin.git_stash, { desc = "Telescope Git Stash" })
 
-keymap.set("n", "<leader>fp", function()
-	require("telescope.builtin").live_grep({
-		default_text = vim.fn.getreg('"'), -- or '"', '*', etc.
-	})
-end, { desc = "Live Grep from clipboard" })
+-- ChatGPT 
+keymap.set("n", "<Leader>cgc", ":ChatGPT<CR>", opts)
+keymap.set("n", "<Leader>cge", ":ChatGPTEditWithInstruction<CR>", opts)
+-- ChatGPTRun commands
+keymap.set("n", "<Leader>cgg", ":ChatGPTRun grammar_correction<CR>", opts)
+keymap.set("n", "<Leader>cgt", ":ChatGPTRun translate<CR>", opts)
+keymap.set("n", "<Leader>cgk", ":ChatGPTRun keywords<CR>", opts)
+keymap.set("n", "<Leader>cgd", ":ChatGPTRun docstring<CR>", opts)
+keymap.set("n", "<Leader>cga", ":ChatGPTRun add_tests<CR>", opts)
+keymap.set({ "n", "v" }, "<Leader>cgo", ":ChatGPTRun optimize_code<CR>", opts)
+keymap.set("n", "<Leader>cgs", ":ChatGPTRun summarize<CR>", opts)
+keymap.set("n", "<Leader>cgf", ":ChatGPTRun fix_bugs<CR>", opts)
+keymap.set("n", "<Leader>cgx", ":ChatGPTRun explain_code<CR>", opts)
+keymap.set("n", "<Leader>cgr", ":ChatGPTRun roxygen_edit<CR>", opts)
+keymap.set("n", "<Leader>cgl", ":ChatGPTRun code_readability_analysis<CR>", opts)
 
-keymap.set("n", "<leader>ff", function()
-	require("telescope.builtin").find_files({
-		default_text = vim.fn.getreg('"'),
-		search_dirs = { vim.fn.getcwd() }, -- Root dir
-	})
-end, { desc = "Find File from clipboard in Root Dir" })
